@@ -1,4 +1,4 @@
-Im1 = imread('card2.jpg');
+Im1 = imread('card3.jpg');
 
 Im1 = imresize(Im1, 0.3);
 
