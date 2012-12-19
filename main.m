@@ -1,4 +1,4 @@
-Im1 = imread('card3.jpg');
+Im1 = imread('card2.jpg');
 
 Im1 = imresize(Im1, 0.3);
 
@@ -12,18 +12,19 @@ Im2 = zeros(size(Im1));
 for i=1:1:width
     Im2(featureX(i,1), featureY(i,1)) = 255;
     
-    
-    Im1(featureX(i,1)-1, featureY(i,1)-1) = 256;
-    Im1(featureX(i,1), featureY(i,1)-1) = 256;
-    Im1(featureX(i,1)+1, featureY(i,1)-1) = 256;
-    
-    Im1(featureX(i,1)-1, featureY(i,1)) = 256;
-    Im1(featureX(i,1), featureY(i,1)) = 256;
-    Im1(featureX(i,1)+1, featureY(i,1)) = 256;
-    
-    Im1(featureX(i,1)-1, featureY(i,1)+1) = 256;
-    Im1(featureX(i,1), featureY(i,1)+1) = 256;
-    Im1(featureX(i,1)+1, featureY(i,1)+1) = 256;
+    if(featureY(i,1)-1>0 && featureX(i,1)-1)
+        Im1(featureX(i,1)-1, featureY(i,1)-1) = 256;
+        Im1(featureX(i,1), featureY(i,1)-1) = 256;
+        Im1(featureX(i,1)+1, featureY(i,1)-1) = 256;
+
+        Im1(featureX(i,1)-1, featureY(i,1)) = 256;
+        Im1(featureX(i,1), featureY(i,1)) = 256;
+        Im1(featureX(i,1)+1, featureY(i,1)) = 256;
+
+        Im1(featureX(i,1)-1, featureY(i,1)+1) = 256;
+        Im1(featureX(i,1), featureY(i,1)+1) = 256;
+        Im1(featureX(i,1)+1, featureY(i,1)+1) = 256;
+    end
     
     Im1(featureX(i,1), featureY(i,1)) = 255;
 end

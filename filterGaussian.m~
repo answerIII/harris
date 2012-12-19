@@ -1,7 +1,15 @@
 function result = filterGaussian(im, sigma, wind)
 % filterGaussian is the finction of Gaus
  
-
+%     if ~mod(wind, 2)
+%         wind = wind + 1;
+%     end
+%     
+%     filter = fspecial('gaussian', wind, sigma);
+%     result = filter2(filter, im);
+%     
+    
+    
     r2 = (wind-1)/2; 
     c2 = (wind-1)/2;
     
@@ -10,7 +18,12 @@ function result = filterGaussian(im, sigma, wind)
 	filter = exp(-radsqrd/(2*sigma^2));
 	filter = filter/sum(filter(:));
     
+    
 
-    result = conv2 (im, filter, 'same');
+    
+
+
+    [nr, nc] = size(filter);
+    result = conv2 (im(nr:-1:1, nc:-1:1), filter, 'same');
 
 end
